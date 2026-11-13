@@ -92,7 +92,7 @@ void runInitialTests(void) {
     test_T5();
 }
 
-int main(void) {
+int main(int argc, char* argv) {
     int COUNT;
     
     printf("Enter classroom temperature readings count\n");
@@ -138,17 +138,20 @@ int main(void) {
         if (status[i] = 1)
         {
             LED = 1;
-            break
+            break;
         }
     }
 
     gpioInitialise();
-    gpioSetMode(Pin, PI_OUTPUT);
+    gpioSetMode(PIN, PI_OUTPUT);
 
     if (LED == 1)
     {
         gpioWrite(PIN, 1);
+        sleep(3);
     }
-
+    gpioWrite(PIN, 0);
+    
+    gpioTerminate();
     return 0;
 }
