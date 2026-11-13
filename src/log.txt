@@ -1,0 +1,8 @@
+Temperature    System Status    Warning LED
+0 = NORMAL or OFF, 1 = WARNING or ON
+
+72.000000          0                  0
+72.000000          0                  0
+72.000000          0                  0
+72.000000          0                  0
+72.000000          0                  0
