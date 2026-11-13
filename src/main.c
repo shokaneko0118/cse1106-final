@@ -6,7 +6,7 @@
 
 int LED = 0;
 
-double calculateAverage(double readings[], int count) {
+double calcavg(double readings[], int count) {
     double total = 0;
     for (int i = 0; i < count; i++) total += readings[i];
     return total / count;
@@ -92,7 +92,7 @@ void runInitialTests(void) {
     test_T5();
 }
 
-int main(void) {
+int main(int argc, char* argv) {
     int COUNT;
     
     printf("Enter classroom temperature readings count\n");
@@ -111,7 +111,7 @@ int main(void) {
 
     printf("\nMonitor Start\n\n");
 
-    printf("Average temperature: %lf F\n\n", calculateAverage(readings, COUNT));
+    printf("Average temperature: %lf F\n\n", calcavg(readings, COUNT));
 
     checkReadings(readings, COUNT, status);
     displayReadings(readings, COUNT, status);
@@ -135,20 +135,24 @@ int main(void) {
 
     for (int i = 0; i < COUNT; i++)
     {
-        if (status[i] = 1)
+        if (status[i] == 1)
         {
             LED = 1;
-            break
+            break;
         }
     }
 
     gpioInitialise();
-    gpioSetMode(Pin, PI_OUTPUT);
+    gpioSetMode(PIN, PI_OUTPUT);
 
     if (LED == 1)
     {
         gpioWrite(PIN, 1);
+        sleep(10);
+        gpioWrite(PIN, 0);
     }
-
+    
+    
+    gpioTerminate();
     return 0;
 }
