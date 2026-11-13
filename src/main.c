@@ -54,7 +54,7 @@ void recordTest(const char *testName, int passed)
 
 void test_T1(void) {
     double temperature = 75.0;
-    recordTest("T1 75 F is within the acceptable range",
+    recordTest("T1 75 F acceptable range",
                isOutOfRange(temperature) == 0);
 }
 
@@ -66,7 +66,7 @@ void test_T2(void) {
 
 void test_T3(void) {
     double temperature = 76;
-    recordTest("T3 76 F is within the acceptable range",
+    recordTest("T3 76 F acceptable range",
                isOutOfRange(temperature) == 0);
 }
 
